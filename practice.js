@@ -128,7 +128,14 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
-
+function divider(arr){
+  const finalArr = [];
+  const evensArray = arr.filter((elem) => elem % 2 === 0);
+  finalArr.push(evensArray);
+  const oddsArray = arr.filter((elem) => elem % 2 != 0);
+  finalArr.push(oddsArray);
+  return finalArr;
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -149,7 +156,20 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+function finder(arr) {
+  const randomNum= getRandomArbitrary();
+  const randomArr= [];
+  for(var i= 0; i < arr.length; i++){
+   if(arr[i] === randomNum) {
+     randomArr.push(arr[i])
+    } 
+  }
+  if(randomArr.length > 0){
+    return true;
+  } else{
+    return false;
+  }
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -178,8 +198,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(gList, item){
+  //if item matches item already in GL... remove item and return new GL/array
+  //use filter method and if elem != item .... keep elem. Store in updatedGroceryList 
+  // const updatedGL = myGroceryList.filter((elem => elem != item));
+  if(gList && item){
+    for(var i = 0; i < gList.length; i++){
+      if(gList[i] === item){
+        gList.splice(i, 1);
+      }
+    } return gList;
+  } else {
+  return [];
+  }
+}
 
-
+function addItem(gList, item) {
+//add item to GL and return new GL/array
+//simply add arr.push item
+if(gList && item){
+  gList.push(item);
+  return gList;
+} else {
+  return [];
+  }
+}
 
 ////////// PROBLEM 9 //////////
 
@@ -188,7 +231,14 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
+function maker() {
+  const nums= [];
+  for(var i = 1; i <= 215; i++){
+    nums.push(i);
+  }
+  return nums;
+}
+maker();
 
 
 ////////// PROBLEM 10 //////////
@@ -204,8 +254,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
+function addTen(num){
+  for(var i= 0; i < num.length; i++) {
+    num[i] = parseInt(num[i]);
+    num[i] = num[i] + 10;
+  }
+  return num;
+}
 
-
+addTen(numbers);
 
 ////////// PROBLEM 11 //////////
 
@@ -229,8 +286,15 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
+function longer(arrOne, arrTwo){
+  if(arrOne.length > arrTwo.length){
+    return arrOne;
+  } else{
+    return arrTwo;
+  }
+}
 
-
+longer(arr1, arr2);
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -241,9 +305,18 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
+function both(arrOne, arrTwo){
+  const newArr = [];
+  for(var i= 0; i < arrOne.length; i++){
+    for(var j= 0; j < arrTwo.length; j++){
+      if(arrOne[i] === arrTwo[j]){
+        newArr.push(arrOne[i]);
+      }
+    }
+  } return newArr;
+}
 
-
-
+both(arr1, arr2)
 ////////// PROBLEM 12 //////////
 
 // Do not edit the code below.
@@ -281,7 +354,12 @@ var colt = {
 */
 
 //Code Here
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
+console.log(devMountainEmployees.length);
 
 
 /*
@@ -290,8 +368,15 @@ var colt = {
 */
 
 //Code Here
-
-
+function removeCahlan(arr){
+  for(var i= 0; i< arr.length; i++) {
+    if(arr[i].name === 'Cahlan') {
+      arr.splice(i, 1);
+      }
+    } return arr;
+  }
+  
+  removeCahlan(devMountainEmployees);
 
 ////////// PROBLEM 13 //////////
 
@@ -302,7 +387,7 @@ var colt = {
 */
 
 //Code Here
-
+const users = [];
 
 
 /*
@@ -321,7 +406,17 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
-
+users.push(user1);
+users.push( {name: 'Erika',
+  email: 'BestProgrammerEver@hotmail.com', 
+  password: 'Loves_2Code',
+  username: 'FancyPants23'
+});
+users.push( {name: 'Tom',
+  email: 'OkayCoder@lame.com', 
+  password: 'ImNotSureAboutThis',
+  username: 'Blah31'
+});
 
 
 /*
@@ -336,8 +431,16 @@ var user1 = {
 
 //Code Here
 
-
-
+function deleteTyler(arr) {
+  for(var i= 0; i< arr.length; i++){
+    if(arr[i].email === 'tylermcginnis33@gmail.com') {
+      arr.splice(i, 1);
+      }
+    }
+    return arr;
+  }
+  
+  deleteTyler(users);
 /*
   The activity we just did is very much how data works in 'the real world'.
 */
